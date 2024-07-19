@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json({ limit: 200 }));
+app.use(bodyParser.json({ limit: "1MB" }));
 
 app.get("/health", (_, res: Response) => {
   res.status(200).send({ message: "hello!" });

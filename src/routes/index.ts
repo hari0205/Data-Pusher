@@ -1,5 +1,6 @@
 import { Router } from "express";
 import accountsRouter from "./v1/accountsRoute";
+import destinationsRouter from "./v1/destinationsRoute";
 
 const v1router = Router();
 const defaultRoutes = [
@@ -7,6 +8,10 @@ const defaultRoutes = [
     path: "/accounts",
     router: accountsRouter,
   },
+  {
+    path: "/destinations",
+    router: destinationsRouter
+  }
 
 ];
 

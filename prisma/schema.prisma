@@ -22,8 +22,8 @@ model Account {
 
 model Destination {
   id         Int      @id @default(autoincrement())
-  account    Account  @relation(fields: [accountId], references: [id], onDelete:  Cascade)
-  accountId  Int
+  account    Account  @relation(fields: [accountId], references: [account_id], onDelete:  Cascade)
+  accountId  String
   url        String
   http_method String
   headers    String // JSON string to store headers

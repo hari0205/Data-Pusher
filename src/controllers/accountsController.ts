@@ -58,7 +58,11 @@ export const createAccount: RequestHandler = async (req, res) => {
 
 export const getAllAccounts: RequestHandler = async (req, res) => {
   const [accounts, accountsError] = await errorhandler(
-    prisma.account.findMany()
+    prisma.account.findMany({
+      include: {
+        destinations: true,
+      },
+    })
   );
 
   if (accountsError) {
@@ -89,6 +93,9 @@ export const getAccount: RequestHandler = async (req, res) => {
   const [account, accountError] = await errorhandler(
     prisma.account.findUnique({
       where: { account_id },
+      include: {
+        destinations: true,
+      },
     })
   );
 
