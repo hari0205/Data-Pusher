@@ -8,9 +8,12 @@ build
 # Migrations
 prisma/migrations
 
+<<<<<<< HEAD
 # DB
 dev.db
 
+=======
+>>>>>>> a5f2cb01768ea5d2de123070fffb4b72c4f0e40a
 #Volumes
 pgdata
 
