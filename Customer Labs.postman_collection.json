@@ -1,0 +1,1765 @@
+{
+	"info": {
+		"_postman_id": "1d22512c-243f-4fad-b6d8-202f54aaa05e",
+		"name": "Customer Labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37118634"
+	},
+	"item": [
+		{
+			"name": "handle data",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							},
+							{
+								"key": "CL-X-TOKEN",
+								"value": "a8f48cbae942158744e077983002cc810fde651e22e4964fd7e40f2b34bad541fa7e8efebbc345eb5ac282fa628321aa49d2332dfe2b9a9e584b194c091ca49f"
+							}
+						],
+						"url": "localhost:3000/api/v1/server/incoming_data"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									},
+									{
+										"key": "CL-X-TOKEN",
+										"value": "a8f48cbae942158744e077983002cc810fde651e22e4964fd7e40f2b34bad541fa7e8efebbc345eb5ac282fa628321aa49d2332dfe2b9a9e584b194c091ca49f"
+									}
+								],
+								"url": "localhost:3000/api/v1/server/incoming_data"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "88"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:52:24 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-4DPb73HwYCCxWMvjoDxxBpmDK5o\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account not found.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									},
+									{
+										"key": "CL-X-TOKEN",
+										"value": "c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c"
+									}
+								],
+								"url": "localhost:3000/api/v1/server/incoming_data"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "87"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:53:02 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-bO2db68fsFmr/PXd5LWft+JY6QY\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data forwarded successfully.\",\n    \"status\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "destinations",
+			"item": [
+				{
+					"name": "Create destinations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"account_id\":\"2fc5e327-ac4e-476c-becf-98f022eb8ae0\",\n\t\"url\": \"http://127.0.0.1/3000\",\n\t\"method\": \"POST\",\n\t\"headers\": {\n    \"Content-Type\": \"application/json\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/v1/destinations/"
+					},
+					"response": [
+						{
+							"name": "Create destinations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"account_id\":\"2fc5e327-ac4e-476c-becf-98f022eb8ae0\",\n\t\"url\": \"http://127.0.0.1/3000\",\n\t\"method\": \"POST\",\n\t\"headers\": {\n    \"Content-Type\": \"application/json\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/destinations/"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:50:17 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-GmLZYNl1QXiNLCJDsGEUonEtIN8\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The account does not exist.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Create destinations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"account_id\":\"365461b3-7112-4b5c-add2-d293f01ad2da\",\n\t\"url\": \"http://127.0.0.1/3000\",\n\t\"method\": \"POST\",\n\t\"headers\": {\n    \"Content-Type\": \"application/json\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/destinations/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "96"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:50:51 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "413"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19d-8f98RYj/KbOTtg0ChI2P/gKGqeQ\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Destination created successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"accountId\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"url\": \"http://127.0.0.1/3000\",\n        \"http_method\": \"POST\",\n        \"headers\": \"{\\\"Content-Type\\\":\\\"application/json\\\",\\\"X-API-Key\\\":\\\"your-api-key-here\\\",\\\"Authorization\\\":\\\"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\\\"}\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All destinations by an account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/api/v1/destinations/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+					},
+					"response": [
+						{
+							"name": "Get All destinations by an account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/destinations/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "95"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:00 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-xIoVVlFonUUT/fQ0eQkyyyNgy4o\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account with ID not found.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Get All destinations by an account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/destinations/365461b3-7112-4b5c-add2-d293f01ad2da"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "94"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:08 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "721"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d1-OlcGmtRffM4y9LhRTo7bGXG+roE\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Destinations fetched successfully.\",\n    \"status\": [\n        {\n            \"id\": 1,\n            \"accountId\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n            \"url\": \"http://127.0.0.1/3000\",\n            \"http_method\": \"POST\",\n            \"headers\": \"{\\\"Content-Type\\\":\\\"application/json\\\",\\\"X-API-Key\\\":\\\"your-api-key-here\\\",\\\"Authorization\\\":\\\"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\\\"}\",\n            \"account\": {\n                \"id\": 1,\n                \"email\": \"someexample22@email.com\",\n                \"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n                \"account_name\": \"some2\",\n                \"app_secret_token\": \"c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c\",\n                \"website\": \"http://avc.xyz\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a destination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"account_id\": \"2fc5e327-ac4e-476c-becf-98f022eb8ae0\",\n\t\"url\": \"http://127.0.0.1:3002/health\",\n\t\"method\": \"GET\",\n\t\"headers\": {\n    \"Content-Type\": \"application/xml\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/v1/destinations/1"
+					},
+					"response": [
+						{
+							"name": "Update a destination",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"account_id\": \"2fc5e327-ac4e-476c-becf-98f022eb8ae0\",\n\t\"url\": \"http://127.0.0.1:3002/health\",\n\t\"method\": \"GET\",\n\t\"headers\": {\n    \"Content-Type\": \"application/xml\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/destinations/10"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "93"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:19 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-hci0FzjNEas44JWI2YFlL/+K7k4\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The specified account does not exist.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Update a destination",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"account_id\": \"2fc5e327-ac4e-476c-becf-98f022eb8ae0\",\n\t\"url\": \"http://127.0.0.1:3002/health\",\n\t\"method\": \"GET\",\n\t\"headers\": {\n    \"Content-Type\": \"application/xml\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/destinations/1"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "92"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:26 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-hci0FzjNEas44JWI2YFlL/+K7k4\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The specified account does not exist.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Update a destination",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n\t\"url\": \"http://127.0.0.1:3002/health\",\n\t\"method\": \"GET\",\n\t\"headers\": {\n    \"Content-Type\": \"application/xml\",\n    \"X-API-Key\": \"your-api-key-here\",\n    \"Authorization\": \"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/destinations/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "91"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:40 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a2-YxfSfuyfxvBq8B0uZyPZwqKb+RA\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Destination updated successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"accountId\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"url\": \"http://127.0.0.1:3002/health\",\n        \"http_method\": \"GET\",\n        \"headers\": \"{\\\"Content-Type\\\":\\\"application/xml\\\",\\\"X-API-Key\\\":\\\"your-api-key-here\\\",\\\"Authorization\\\":\\\"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\\\"}\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a Destination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/api/v1/destinations/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+					},
+					"response": [
+						{
+							"name": "Delete a Destination",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/destinations/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "90"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:51:50 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-EAK5aaFzQYnmtAXmiDayclrW96M\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Destination not found.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Delete a Destination",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/destinations/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "89"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:52:08 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484318"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a2-d8YKxo3wy+CwvVk1HfCuuqAs04Q\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Destination deleted successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"accountId\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"url\": \"http://127.0.0.1:3002/health\",\n        \"http_method\": \"GET\",\n        \"headers\": \"{\\\"Content-Type\\\":\\\"application/xml\\\",\\\"X-API-Key\\\":\\\"your-api-key-here\\\",\\\"Authorization\\\":\\\"Bearer e1d4f67dd3df2af3c40f449ae8b63405d2072a58f1bea418ed332b32794f8d61098f2296e86ff94f9e049e2f867849bb244fc3dfa9477e9447eba910d4181499\\\"}\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "Create Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"some2@email.com\",\n\t\"account_name\" : \"some\",\n\t\"website\": \"http://abc.xyz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/v1/accounts"
+					},
+					"response": [
+						{
+							"name": "Create Accounts",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\" : \"some2@email.com\",\n\t\"account_name\" : \"some\",\n\t\"website\": \"http://abc.xyz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/accounts"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:44:17 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721483958"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "338"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"152-gu3lMPfHM60v0e1xnid8WsLH8S8\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account created successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"email\": \"some2@email.com\",\n        \"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"account_name\": \"some\",\n        \"app_secret_token\": \"c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c\",\n        \"website\": \"http://abc.xyz\"\n    }\n}"
+						},
+						{
+							"name": "Create Accounts",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\" : \"some2@email.com\",\n\t\"account_name\" : \"some\",\n\t\"website\": \"http://abc.xyz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/accounts"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:44:27 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721483958"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-6eclPO1sfnEFaLe92ArqsWcs+2s\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email already in use.\",\n    \"status\": 400,\n    \"error\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/api/v1/accounts"
+					},
+					"response": [
+						{
+							"name": "Get All accounts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/accounts"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:44:34 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721483958"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "361"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"169-fkp+Emg+c4ez7eUP5f+yt4N4hEI\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Accounts retrieved successfully.\",\n    \"status\": [\n        {\n            \"id\": 1,\n            \"email\": \"some2@email.com\",\n            \"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n            \"account_name\": \"some\",\n            \"app_secret_token\": \"c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c\",\n            \"website\": \"http://abc.xyz\",\n            \"destinations\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/api/v1/accounts/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+					},
+					"response": [
+						{
+							"name": "Get an account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/accounts/365461b3-7112-4b5c-add2-d293f01ad2da"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "96"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:44:54 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721483958"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "358"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"166-mWgUDyS69nbSucPp1yjg5NJXl/8\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account retrieved successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"email\": \"some2@email.com\",\n        \"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"account_name\": \"some\",\n        \"app_secret_token\": \"c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c\",\n        \"website\": \"http://abc.xyz\",\n        \"destinations\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an accout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"someexample22@email.com\",\n\t\"name\": \"some2\",\n\t\"website\": \"http://avc.xyz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/v1/accounts/2fc5e327-ac4e-476c-becf-98f022eb8ae0"
+					},
+					"response": [
+						{
+							"name": "Update an accout",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"someexample22@email.com\",\n\t\"name\": \"some2\",\n\t\"website\": \"http://avc.xyz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/accounts/365461b3-7112-4b5c-add2-d293f01ad2da"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "95"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:45:12 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721483958"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c6-Nm876beTms9UJFrOKzu6lXK200Y\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid request body\",\n    \"status\": 400,\n    \"error\": {\n        \"issues\": [\n            {\n                \"code\": \"invalid_type\",\n                \"expected\": \"string\",\n                \"received\": \"undefined\",\n                \"path\": [\n                    \"account_name\"\n                ],\n                \"message\": \"Required\"\n            }\n        ],\n        \"name\": \"ZodError\"\n    }\n}"
+						},
+						{
+							"name": "Update an accout",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"someexample22@email.com\",\n\t\"account_name\": \"some2\",\n\t\"website\": \"http://avc.xyz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/api/v1/accounts/365461b3-7112-4b5c-add2-d293f01ad2da"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:48:21 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484202"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "347"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15b-8xzID9AA2xj0TbWoGPnBxc8U8qk\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account updated successfully.\",\n    \"status\": {\n        \"id\": 1,\n        \"email\": \"someexample22@email.com\",\n        \"account_id\": \"365461b3-7112-4b5c-add2-d293f01ad2da\",\n        \"account_name\": \"some2\",\n        \"app_secret_token\": \"c507366020ce90eef90625a048384be647edaab83c6834d5eb0354eec0776f125e7b2adda1db6fef4a22126c5ad04dd3197261a1a57f0e1f225251b98c29508c\",\n        \"website\": \"http://avc.xyz\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/api/v1/accounts/3a6e00c7-bcb5-473d-828a-2a58245dbfb7"
+					},
+					"response": [
+						{
+							"name": "Delete an account",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/accounts/3a6e00c7-bcb5-473d-828a-2a58245dbfb7"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "97"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:48:38 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484202"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d-4DPb73HwYCCxWMvjoDxxBpmDK5o\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account not found.\",\n    \"status\": 404\n}"
+						},
+						{
+							"name": "Delete an account",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "User-Agent",
+										"value": "insomnia/2023.5.8"
+									}
+								],
+								"url": "localhost:3000/api/v1/accounts/c6bd9dc4-0bf4-4eeb-ad88-0c6ab1f1affe"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "96"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jul 2024 13:48:44 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1721484202"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-wFmdRgjvVfUXmoYd8dmsZMdGg2I\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account deleted successfully.\",\n    \"status\": {\n        \"id\": 2,\n        \"email\": \"some@email.com\",\n        \"account_id\": \"c6bd9dc4-0bf4-4eeb-ad88-0c6ab1f1affe\",\n        \"account_name\": \"some\",\n        \"app_secret_token\": \"1e6498e876e200df2b12df2b67f54ff60333e1b91a9ddd4bbd1783f9204b3adb63788607d528eb565e6cfb4363e488619b973d052a4cd9337180648e3f4c6293\",\n        \"website\": \"http://abc.xyz\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": []
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followRedirects": true,
+				"disableUrlEncoding": false,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "insomnia/2023.5.8"
+					}
+				],
+				"url": "localhost:3000/health"
+			},
+			"response": [
+				{
+					"name": "Health Check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnia/2023.5.8"
+							}
+						],
+						"url": "localhost:3000/health"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14-li7HDh+tAWW33cIYjDrXLcX526M\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Jul 2024 13:44:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"hello!\"\n}"
+				}
+			]
+		}
+	]
+}

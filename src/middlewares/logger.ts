@@ -41,6 +41,7 @@ const customLogger = (req: Request, res: Response, next: NextFunction) => {
   console.log(`Request Body: ${JSON.stringify(req.body)}`);
 
   // Add a listener for the response 'finish' event to log response details
+  //TODO: try make this work
   res.on("finish", () => {
     try {
       const responseBody = res.locals.body;

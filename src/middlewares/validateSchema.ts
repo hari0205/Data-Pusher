@@ -7,7 +7,7 @@ const validate =
   (schema: ZodSchema<any>) =>
   (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.debug(`Validating schema ${schema} for ${req.body}`);
+      console.debug(`Validating schema for ${JSON.stringify(req.body)}`);
 
       schema.parse(req.body);
       next();

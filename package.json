@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": {
+    "url": "https://github.com/hari0205",
+    "name": "HARIHARA SUDHAN"
+  },
   "scripts": {
     "start:dev": "tsnd --respawn src/server.ts",
     "start:dev2": "tsnd --respawn server2.ts",
