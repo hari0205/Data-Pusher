@@ -1,15 +1,10 @@
 import { RequestHandler } from "express";
 import prisma from "../db";
 import { errorhandler, ApiResponses } from "../utils";
+import httpStatus from "http-status";
 
 export const createDestination: RequestHandler = async (req, res) => {
   const { url, method, headers, account_id } = req.body;
-  if (!url && !method && !headers) {
-    return ApiResponses.returnBadRequest(
-      res,
-      "URL, method and headers are required"
-    );
-  }
 
   // Check if account exists
   const [account, accountError] = await errorhandler(
@@ -21,12 +16,17 @@ export const createDestination: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An error occurred while trying to fetch related account."
     );
   }
 
   if (!account) {
-    return ApiResponses.returnBadRequest(res, "The account does not exist.");
+    return ApiResponses.returnNotFound(
+      res,
+      httpStatus.NOT_FOUND,
+      "The account does not exist."
+    );
   }
 
   const [destination, destinationError] = await errorhandler(
@@ -41,10 +41,9 @@ export const createDestination: RequestHandler = async (req, res) => {
   );
 
   if (destinationError) {
-    console.error(destinationError);
-
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while creating the destination.",
       destinationError
     );
@@ -57,11 +56,16 @@ export const createDestination: RequestHandler = async (req, res) => {
   );
 };
 
+// All destinations by an account
 export const getAllDestinations: RequestHandler = async (req, res) => {
   const { account_id } = req.params;
 
   if (!account_id) {
-    return ApiResponses.returnBadRequest(res, "Account id is required");
+    return ApiResponses.returnBadRequest(
+      res,
+      httpStatus.BAD_REQUEST,
+      "Account id is required"
+    );
   }
 
   const [account, accountError] = await errorhandler(
@@ -73,13 +77,15 @@ export const getAllDestinations: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "Unexpected error occurred while trying to retrieve accounts"
     );
   }
 
   if (!account) {
-    return ApiResponses.returnInternalServerError(
+    return ApiResponses.returnNotFound(
       res,
+      httpStatus.NOT_FOUND,
       "Account with ID not found."
     );
   }
@@ -95,6 +101,7 @@ export const getAllDestinations: RequestHandler = async (req, res) => {
     console.error(destinationsError);
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An error occurred while fetching destinations.",
       destinationsError
     );
@@ -111,9 +118,6 @@ export const updateDestination: RequestHandler = async (req, res) => {
   const { id } = req.params;
   const { url, method, headers, account_id } = req.body;
 
-  if (!account_id) {
-    return ApiResponses.returnBadRequest(res, "Account ID is required.");
-  }
   const [account, accountError] = await errorhandler(
     prisma.account.findUnique({
       where: { account_id },
@@ -123,14 +127,16 @@ export const updateDestination: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An error occurred while trying to fetch related account.",
       accountError
     );
   }
 
   if (!account) {
-    return ApiResponses.returnBadRequest(
+    return ApiResponses.returnNotFound(
       res,
+      httpStatus.NOT_FOUND,
       "The specified account does not exist."
     );
   }
@@ -143,16 +149,20 @@ export const updateDestination: RequestHandler = async (req, res) => {
   );
 
   if (destinationError) {
-    console.error(destinationError);
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An error occurred while checking for the destination.",
       destinationError
     );
   }
 
   if (!existingDestination) {
-    return ApiResponses.returnBadRequest(res, "Destination not found.");
+    return ApiResponses.returnNotFound(
+      res,
+      httpStatus.NOT_FOUND,
+      "Destination not found."
+    );
   }
 
   // Prepare update data
@@ -174,6 +184,7 @@ export const updateDestination: RequestHandler = async (req, res) => {
     console.error(updateError);
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while updating the destination.",
       updateError
     );
@@ -199,13 +210,18 @@ export const deleteDestination: RequestHandler = async (req, res) => {
   if (destinationError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An error occurred while checking for the destination.",
       destinationError
     );
   }
 
   if (!existingDestination) {
-    return ApiResponses.returnBadRequest(res, "Destination not found.");
+    return ApiResponses.returnNotFound(
+      res,
+      httpStatus.NOT_FOUND,
+      "Destination not found."
+    );
   }
 
   // Delete the destination
@@ -219,6 +235,7 @@ export const deleteDestination: RequestHandler = async (req, res) => {
     console.error(deleteError);
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while deleting the destination.",
       deleteError
     );

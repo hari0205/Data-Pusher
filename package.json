@@ -5,17 +5,23 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "tsnd --respawn src/server.ts",
-    "test": "jest"
+    "start:dev2": "tsnd --respawn server2.ts",
+    "test": "jest",
+    "dev:migrate": "npx prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
+    "@types/morgan": "^1.9.9",
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
     "http-status": "^1.7.4",
+    "morgan": "^1.10.0",
     "sqlite3": "^5.1.7",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

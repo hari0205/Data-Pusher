@@ -6,16 +6,11 @@ import {
   errorhandler,
   ApiResponses,
 } from "../utils";
+import httpStatus from "http-status";
 
 export const createAccount: RequestHandler = async (req, res) => {
   const { email, account_name, website } = req.body;
 
-  if (!email || !account_name) {
-    return ApiResponses.returnBadRequest(
-      res,
-      "Email and account name must be provided."
-    );
-  }
   // Just pass the promise
   const [acct, accountError] = await errorhandler(
     prisma.account.findUnique({
@@ -24,9 +19,19 @@ export const createAccount: RequestHandler = async (req, res) => {
   );
 
   if (acct) {
-    return ApiResponses.returnBadRequest(res, "Email already in use.");
+    return ApiResponses.returnBadRequest(
+      res,
+      httpStatus.BAD_REQUEST,
+      "Email already in use.",
+      new Error("The email entered is already in use.")
+    );
   } else if (accountError) {
-    return ApiResponses.returnInternalServerError(res);
+    return ApiResponses.returnInternalServerError(
+      res,
+      httpStatus.INTERNAL_SERVER_ERROR,
+      "An Unknown Error occurred.",
+      accountError
+    );
   }
 
   const [createdAccount, createAccountError] = await errorhandler(
@@ -44,6 +49,7 @@ export const createAccount: RequestHandler = async (req, res) => {
   if (createAccountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An Unexpected Error occurred while creating account.",
       createAccountError
     );
@@ -68,6 +74,7 @@ export const getAllAccounts: RequestHandler = async (req, res) => {
   if (accountsError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while fetching accounts.",
       accountsError
     );
@@ -86,6 +93,7 @@ export const getAccount: RequestHandler = async (req, res) => {
   if (!account_id) {
     return ApiResponses.returnBadRequest(
       res,
+      httpStatus.BAD_REQUEST,
       " An account id must be provided."
     );
   }
@@ -102,13 +110,18 @@ export const getAccount: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while fetching the account.",
       accountError
     );
   }
 
   if (!account) {
-    return ApiResponses.returnBadRequest(res, "Account not found.");
+    return ApiResponses.returnNotFound(
+      res,
+      httpStatus.NOT_FOUND,
+      "Account not found."
+    );
   }
 
   return ApiResponses.returnSuccess(
@@ -122,15 +135,12 @@ export const updateAccount: RequestHandler = async (req, res) => {
   const { email, account_name, website } = req.body;
   const { account_id } = req.params;
 
-  if (!email && !account_name && !website) {
+  if (!account_id) {
     return ApiResponses.returnBadRequest(
       res,
-      "Either email or account_name or website must be provided"
+      httpStatus.BAD_REQUEST,
+      "account id must be provided."
     );
-  }
-
-  if (!account_id) {
-    return ApiResponses.returnBadRequest(res, "account id must be provided.");
   }
 
   const [account, accountError] = await errorhandler(
@@ -142,13 +152,18 @@ export const updateAccount: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while fetching the account.",
       accountError
     );
   }
 
   if (!account) {
-    return ApiResponses.returnBadRequest(res, "Account not found.");
+    return ApiResponses.returnBadRequest(
+      res,
+      httpStatus.NOT_FOUND,
+      "Account not found."
+    );
   }
 
   const [updatedAccount, updateAccountError] = await errorhandler(
@@ -165,6 +180,7 @@ export const updateAccount: RequestHandler = async (req, res) => {
   if (updateAccountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while updating the account.",
       updateAccountError
     );
@@ -183,6 +199,7 @@ export const deleteAccount: RequestHandler = async (req, res) => {
   if (!account_id) {
     return ApiResponses.returnBadRequest(
       res,
+      httpStatus.BAD_REQUEST,
       "An account id must be provided."
     );
   }
@@ -196,13 +213,18 @@ export const deleteAccount: RequestHandler = async (req, res) => {
   if (accountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while fetching the account.",
       accountError
     );
   }
 
   if (!account) {
-    return ApiResponses.returnBadRequest(res, "Account not found.");
+    return ApiResponses.returnBadRequest(
+      res,
+      httpStatus.NOT_FOUND,
+      "Account not found."
+    );
   }
 
   const [deletedAccount, deleteAccountError] = await errorhandler(
@@ -214,6 +236,7 @@ export const deleteAccount: RequestHandler = async (req, res) => {
   if (deleteAccountError) {
     return ApiResponses.returnInternalServerError(
       res,
+      httpStatus.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred while deleting the account.",
       deleteAccountError
     );

@@ -1,5 +1,17 @@
-import { createAccount , getAllAccounts , getAccount , updateAccount, deleteAccount } from "./accountsController";
-import { createDestination, getAllDestinations, updateDestination , deleteDestination } from "./destinationsController";
+import {
+  createAccount,
+  getAllAccounts,
+  getAccount,
+  updateAccount,
+  deleteAccount,
+} from "./accountsController";
+import {
+  createDestination,
+  getAllDestinations,
+  updateDestination,
+  deleteDestination,
+} from "./destinationsController";
+import { handleData } from "./dataHandleController";
 
 export {
   createAccount,
@@ -10,5 +22,6 @@ export {
   createDestination,
   getAllDestinations,
   updateDestination,
-  deleteDestination
+  deleteDestination,
+  handleData,
 };
