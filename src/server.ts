@@ -10,6 +10,9 @@ import {
   morganFileLogger,
 } from "./middlewares/logger";
 import rateLimiter from "./middlewares/rateLimiter";
+import helmet from "helmet";
+import cors from "cors";
+import xss from "xss-clean";
 
 dotenv.config();
 
@@ -18,6 +21,27 @@ const PORT = process.env.PORT || 3000;
 
 // Enable 'trust proxy' to correctly capture client's IP address behind a reverse proxy
 app.set("trust proxy", 1);
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", "data:", "blob:"],
+      },
+    },
+    // Disable strict-transport-security for local development
+    strictTransportSecurity: false,
+  })
+);
+
+// Enable CORS
+app.use(cors());
+
+// Prevent XSS attacks
+app.use(xss());
 
 // Use the morgan middleware for logging requests to a file
 app.use(morganFileLogger);
@@ -52,7 +76,6 @@ export default server;
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
-  
   console.error("Uncaught Exception:", err);
 });
 
