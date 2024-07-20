@@ -1,27 +1,20 @@
-import {
-  createAccount,
-  getAllAccounts,
-  getAccount,
-  updateAccount,
-  deleteAccount,
-} from "./accountsController";
-import {
-  createDestination,
-  getAllDestinations,
-  updateDestination,
-  deleteDestination,
-} from "./destinationsController";
-import { handleData } from "./dataHandleController";
+import * as AccountsController from "./accountsController";
+import * as DestinationsController from "./destinationsController";
+import * as DataHandleController from "./dataHandleController";
 
-export {
+export const {
   createAccount,
   getAllAccounts,
   getAccount,
   updateAccount,
   deleteAccount,
+} = AccountsController;
+
+export const {
   createDestination,
   getAllDestinations,
   updateDestination,
   deleteDestination,
-  handleData,
-};
+} = DestinationsController;
+
+export const { handleData } = DataHandleController;

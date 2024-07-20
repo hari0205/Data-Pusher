@@ -9,7 +9,7 @@ import {
   morganConsoleLogger,
   morganFileLogger,
 } from "./middlewares/logger";
-import rateLimiter from "./middlewares/rateLimiter";
+import { rateLimiter } from "./middlewares";
 import helmet from "helmet";
 import cors from "cors";
 import xss from "xss-clean";
