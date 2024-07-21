@@ -1,5 +1,5 @@
 import express from "express";
-import { Response } from "express";
+import { Response, Request, NextFunction } from "express";
 
 import dotenv from "dotenv";
 import v1router from "./routes";
@@ -13,6 +13,7 @@ import { rateLimiter } from "./middlewares";
 import helmet from "helmet";
 import cors from "cors";
 import xss from "xss-clean";
+import httpStatus from "http-status";
 
 dotenv.config();
 
@@ -55,15 +56,22 @@ app.use(customLogger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "1MB" }));
 
+// Apply the rate limiter
+app.use(rateLimiter);
+
 app.get("/health", (_, res: Response) => {
   res.status(200).send({ message: "hello!" });
 });
 
-// Apply the rate limiter
-app.use(rateLimiter);
-
 // Api ROutes
 app.use("/api/v1", v1router);
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(httpStatus.NOT_FOUND).json({
+    status: httpStatus.NOT_FOUND,
+    message: "The requested resource was not found.",
+  });
+});
 
 // Global error handler
 app.use(errorHandler);
